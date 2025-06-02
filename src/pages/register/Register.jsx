@@ -1,8 +1,14 @@
 import Lottie from 'lottie-react';
-import React from 'react';
+import React, { use } from 'react';
 import animationData from '../../assets/lotties/animation.json'
+import { AuthContext } from '../../contexts/AuthContext/AuthContext';
+import SocialLogin from '../shared/SocialLogin';
 
 const Register = () => {
+
+    const {createUser} = use(AuthContext);
+
+
     const handleRegister = (event) => {
         event.preventDefault();
         
@@ -10,6 +16,16 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log('Email:', email, 'Password:', password);
+        // createUser,
+        createUser(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log('User registered:', user);
+                // form.reset();
+            })
+            .catch(error => {
+                console.error('Error registering user:', error);
+            });
     }
     return (
         <div className="hero bg-base-200 min-h-screen">
@@ -33,6 +49,7 @@ const Register = () => {
                                 <button className="btn btn-neutral mt-4">Register</button>
                             </fieldset>
                         </form>
+                        <SocialLogin></SocialLogin>
                     </div>
                 </div>
             </div>
