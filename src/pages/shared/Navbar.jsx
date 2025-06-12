@@ -18,7 +18,14 @@ const Navbar = () => {
     const links = (
         <>
             <li><NavLink to="/">Home</NavLink></li>
+            {
+                User && <>
+                    <li><NavLink to="/myApplications">MyApplications</NavLink></li>
+
+                </>
+            }
         </>
+       
     );
 
     return (

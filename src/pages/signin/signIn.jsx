@@ -3,9 +3,18 @@ import { AuthContext } from '../../contexts/AuthContext/AuthContext';
 import animationData from '../../assets/lotties/signUp.json'
 import Lottie from 'lottie-react';
 import SocialLogin from '../shared/SocialLogin';
+import { useLocation, useNavigate } from 'react-router';
+
 
 const signIn = () => {
     const { signInUser } = use(AuthContext);
+     const location= useLocation();
+     const navigate = useNavigate();
+     const from = location.state ||'/';
+     console.log('location in signin page', location);
+    
+
+    console.log('location in signin page', location);
     const handleSignIn = (event) => {
         event.preventDefault();
 
@@ -19,6 +28,7 @@ const signIn = () => {
                 const user = result.user;
                 console.log('User signed in:', user);
                 // Handle successful sign-in (e.g., redirect or show a success message)
+               navigate(from);
             })
             .catch(error => {
                 console.error('Error signing in:', error);
@@ -48,7 +58,7 @@ const signIn = () => {
                                 <button className="btn btn-neutral mt-4">Sign In</button>
                             </fieldset>
                         </form>
-                        <SocialLogin></SocialLogin>
+                        <SocialLogin from={from} ></SocialLogin>
                     </div>
                 </div>
             </div>
