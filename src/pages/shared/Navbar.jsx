@@ -18,11 +18,21 @@ const Navbar = () => {
     const links = (
         <>
             <li><NavLink to="/">Home</NavLink></li>
+            {/* for applicant links.check roles as well  */}
             {
                 User && <>
                     <li><NavLink to="/myApplications">MyApplications</NavLink></li>
 
                 </>
+            }
+            {/* for recruiter .check role as well  */}
+            {
+                User && <>
+                    <li><NavLink to="/addJob">Add Job</NavLink></li>
+                    <li><NavLink to="/myPostedJobs">My Posted Jobs</NavLink></li>
+
+                </>
+
             }
         </>
        
@@ -53,6 +63,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
+               
                 {
                     User ? <button onClick={handleSignOut} className='btn'>Sign Out</button> :
                         <>
