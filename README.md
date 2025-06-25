@@ -30,6 +30,11 @@ The main goal of this project is to provide:
 - ✅ Productivity & soft skill development
 
 ---
+## Screenshot
+
+![App Screenshot](https://i.ibb.co/k2BtJPYY/Screenshot-2025-06-25-032335.png)
+
+---
 
 ## 🚀 Who Can Use This?
 
